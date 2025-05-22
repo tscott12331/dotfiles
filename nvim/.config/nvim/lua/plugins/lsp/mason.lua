@@ -1,39 +1,31 @@
 return {
-    "williamboman/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
     dependencies = {
-	"williamboman/mason-lspconfig.nvim",
+        { "mason-org/mason.nvim", opts = {
+                ui = {
+                    icons = {
+                        package_installed = "✓",
+                        package_pending = "➜",
+                        package_uninstalled = "✗"
+                    }
+                },
+            } 
+        },
+        "neovim/nvim-lspconfig",
     },
-    config = function() 
-        local mason = require('mason')
-        local mason_lspconfig = require('mason-lspconfig')
+    opts = {
+        ensure_installed = { 
+            "lua_ls",
+            "rust_analyzer",
+            "cssls",
+            "svelte",
+            "ts_ls",
+            "sqlls",
+            "pyright",
+            "clangd",
+            "html",
+        },
 
-        mason.setup({
-            ui = {
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗"
-                }
-                }	
-        })
-        
-        mason_lspconfig.setup({
-            ensure_installed = { 
-                "lua_ls",
-                "rust_analyzer",
-                "cssls",
-                "svelte",
-                "ts_ls",
-                "sqlls",
-                "pyright",
-                "clangd",
-                "html",
-            },
-
-            automatic_installation = true,
-        })
-
-	end,
-
+        automatic_enable = false,
+    },
 }
-

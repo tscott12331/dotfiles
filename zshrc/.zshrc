@@ -102,3 +102,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# bun completions
+[ -s "/Users/thomasscott/.bun/_bun" ] && source "/Users/thomasscott/.bun/_bun"
+
+# bun
+
+alias gcc="gcc-15"
+alias g++="g++-15"
+alias cc="gcc-15"
+alias c++="c++-15"
+
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

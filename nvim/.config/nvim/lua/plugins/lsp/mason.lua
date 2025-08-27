@@ -24,6 +24,7 @@ return {
             "pyright",
             "clangd",
             "html",
+            "csharp_ls",
         },
 
         automatic_enable = false,

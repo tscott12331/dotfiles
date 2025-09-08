@@ -25,6 +25,7 @@ return {
             "clangd",
             "html",
             "csharp_ls",
+            "tailwindcss",
         },
 
         automatic_enable = false,

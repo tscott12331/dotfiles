@@ -9,10 +9,10 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
+        "Jezda1337/nvim-html-css",
 		},
 	config = function() 
 			local cmp = require("cmp")
-			
             local luasnip = require("luasnip")
             require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
@@ -36,6 +36,7 @@ return {
                     { name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
+                    { name = "html-css"},
 				})
 			})
 		end

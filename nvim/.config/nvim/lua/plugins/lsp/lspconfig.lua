@@ -5,8 +5,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-        local lspconfig = require("lspconfig")
-
         -- import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -56,43 +54,55 @@ return {
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
-        lspconfig["tailwindcss"].setup({
+        vim.lsp.config("tailwindcss", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        lspconfig["csharp_ls"].setup({
+        vim.lsp.enable("tailwindcss")
+
+        vim.lsp.config("cssls", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        lspconfig["cssls"].setup({
+        vim.lsp.enable("cssls")
+        
+        vim.lsp.config("rust_analyzer", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        lspconfig["rust_analyzer"].setup({
+        vim.lsp.enable("rust_analyzer")
+
+        vim.lsp.config("sqlls", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        lspconfig["sqlls"].setup({
+        vim.lsp.enable("sqlls")
+
+        vim.lsp.config("ts_ls", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        lspconfig["ts_ls"].setup({
+        vim.lsp.enable("ts_ls")
+
+        vim.lsp.config("pyright", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        lspconfig["pyright"].setup({
+        vim.lsp.enable("pyright")
+
+        vim.lsp.config("svelte", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        lspconfig["svelte"].setup({
+        vim.lsp.enable("svelte")
+
+         vim.lsp.config("clangd", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-         lspconfig["clangd"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-        lspconfig["lua_ls"].setup({
+        vim.lsp.enable("clangd")
+
+        vim.lsp.config("lua_ls", {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = {
@@ -110,9 +120,27 @@ return {
                 },
             }
         })
-        lspconfig["html"].setup({
+        vim.lsp.enable("lua_ls")
+
+        vim.lsp.config("html", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
+        vim.lsp.enable("html")
+
+        vim.lsp.config("roslyn", {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+                ["csharp|inlay_hints"] = {
+                    csharp_enable_inlay_hints_for_implicit_object_creation = true,
+                    csharp_enable_inlay_hints_for_implicit_variable_types = true,
+                },
+                ["csharp|code_lens"] = {
+                    dotnet_enable_references_code_lens = true,
+                },
+            },
+        })
+        vim.lsp.enable("roslyn")
     end
 }

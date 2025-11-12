@@ -10,19 +10,22 @@ return {
     opts = {
         window = {
             width = 30,
-        }
+        },
+        filesystem = {
+            hijack_netrw_behavior = "disabled",
+        },
     }
   },
-  {
-    "antosha417/nvim-lsp-file-operations",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
-    },
-    config = function()
-      require("lsp-file-operations").setup()
-    end,
-  },
+  -- {
+  --   "antosha417/nvim-lsp-file-operations",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
+  --   },
+  --   config = function()
+  --     require("lsp-file-operations").setup()
+  --   end,
+  -- },
   -- {
   --   "s1n7ax/nvim-window-picker",
   --   version = "2.*",
